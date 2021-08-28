@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="./assets/css/global.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <!-- Navbar -->
+      <v-app-bar app color="yellow darken-2" dense flat dark>
+        <v-container>
+          <div class="d-flex justify-around align-center">
+            <v-app-bar-title >WebIoT</v-app-bar-title>
+            <v-spacer></v-spacer>
+            <a href="/" class="mr-8 white--text font-weight-normal">Home</a>
+            <a href="#description" class="mr-8 white--text font-weight-normal">Description</a>
+            <a href="#monitoring" class="white--text font-weight-normal">Monitoring</a>
+          </div>
+        </v-container>
+      </v-app-bar>
+      <!-- end -->
+      <v-main>
+        <!-- jumbotron -->
+        <section class="jumbotron">
+            <v-container>
+              <v-row class="c-jumbotron">
+                <v-col lg="6" md="6" sm="12" cols="12">
+                  <h2 class="m-title">Web IoT</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi ab doloribus vero adipisci, cumque amet, asperiores ullam, velit dignissimos quaerat vel autem deserunt corporis dicta voluptatum hic tempora eaque!</p>
+
+                  <v-btn elevation="0" large color="yellow darken-2" dark class="text-capitalize">Monitoring</v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
+          </section>
+          <!-- end -->
+
+          <v-container>
+            <!-- description -->
+            <section id="description" class="description">
+              <h2 class="mb-8">Description</h2>
+
+              <v-row>
+                <v-col lg="6" md="6" sm="12" cols="12">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi pariatur incidunt quo, et ipsum aliquam earum suscipit illo sint tempora eligendi consequuntur, est voluptatum iusto, magni aperiam nesciunt. Nisi cupiditate omnis deserunt consequatur nesciunt aliquid. Qui optio quis, excepturi ipsa, sapiente dignissimos maiores nobis veniam soluta cum magnam? At, repellendus!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi pariatur incidunt quo, et ipsum aliquam earum suscipit illo sint tempora eligendi consequuntur, est voluptatum iusto, magni aperiam nesciunt. Nisi cupiditate omnis deserunt consequatur nesciunt aliquid. Qui optio quis, excepturi ipsa, sapiente dignissimos maiores nobis veniam soluta cum magnam? At, repellendus!</p>
+                </v-col>
+                <v-col lg="6" class="d-none d-sm-none d-md-none d-lg-block">
+                  <v-img src="../assets/images/iot.svg" alt="iot.svg"></v-img>
+                </v-col>
+                <v-col lg="6" class="d-none d-sm-none d-md-none d-lg-block">
+                  <v-img src="../assets/images/farm.svg" alt="farm.svg"></v-img>
+                </v-col>
+                <v-col lg="6" md="6" sm="12" cols="12">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi pariatur incidunt quo, et ipsum aliquam earum suscipit illo sint tempora eligendi consequuntur, est voluptatum iusto, magni aperiam nesciunt. Nisi cupiditate omnis deserunt consequatur nesciunt aliquid. Qui optio quis, excepturi ipsa, sapiente dignissimos maiores nobis veniam soluta cum magnam? At, repellendus!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi pariatur incidunt quo, et ipsum aliquam earum suscipit illo sint tempora eligendi consequuntur, est voluptatum iusto, magni aperiam nesciunt. Nisi cupiditate omnis deserunt consequatur nesciunt aliquid. Qui optio quis, excepturi ipsa, sapiente dignissimos maiores nobis veniam soluta cum magnam? At, repellendus!</p>
+                </v-col>
+              </v-row>
+            </section>
+            <!-- end -->
+            
+            <!-- monitoring card-->
+            <section id="monitoring" class="monitoring">
+              <h2 class="mb-8">Monitoring</h2>
+              <v-row>
+                <v-col lg="4" md="4" sm="6" cols="12">
+                  <v-card elevation="0" outlined class="text-center rounded-0 pa-2">
+                    <v-card-title
+                      class="font-weight-bold orange--text d-block mx-auto"
+                    >
+                      <h3>Temperature</h3>
+                    </v-card-title>
+                    <v-card-text 
+                      class="f-digit orange--text"
+                    >
+                      {{ temp.length > 0 ? temp[0].field1 : '0.00' }}&deg;C
+                    </v-card-text>
+                    <v-card-subtitle 
+                    class="orange--text"
+                    >
+                      Update {{convertDate(temp.length > 0 ? temp[0].created_at : '1 hour ago')}}
+                    </v-card-subtitle>
+                  </v-card>
+                </v-col>
+
+                <v-col lg="4" md="4" sm="6" cols="12">
+                  <v-card elevation="0" outlined class="text-center rounded-0 pa-2">
+                    <v-card-title
+                      class="font-weight-bold blue--text d-block mx-auto"
+                    >
+                      <h3>Humidity</h3>
+                    </v-card-title>
+                    <v-card-text 
+                      class="f-digit blue--text"
+                    >
+                      {{ humd.length > 0 ? humd[0].field2 : '0.00' }}%
+                    </v-card-text>
+                    <v-card-subtitle 
+                    class="blue--text"
+                    >
+                      Update {{convertDate(humd.length > 0 ? humd[0].created_at : '1 hour ago')}}
+                    </v-card-subtitle>
+                  </v-card>
+                </v-col>
+
+                <v-col lg="4" md="4" sm="6" cols="12">
+                  <v-card elevation="0" outlined class="text-center rounded-0 pa-2">
+                    <v-card-title
+                      class="font-weight-bold green--text d-block mx-auto"
+                    >
+                      <h3>Humidity</h3>
+                    </v-card-title>
+                    <v-card-text 
+                      class="f-digit green--text"
+                    >
+                      {{ soil.length > 0 ? soil[0].field3 : '0.00' }}%
+                    </v-card-text>
+                    <v-card-subtitle 
+                    class="green--text"
+                    >
+                      Update {{convertDate(soil.length > 0 ? soil[0].created_at : '1 hour ago')}}
+                    </v-card-subtitle>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </section>
+            <!-- end -->
+          </v-container>
+      </v-main>
+
+      <!-- navigasi up -->
+      <v-btn
+        v-show="state"
+        elevation="5"
+        color="yellow darken-2"
+        dark
+        fab
+        class="floating"
+        @click="handlebutton"
+      >
+        <v-icon>mdi-chevron-up</v-icon>
+      </v-btn>
+
+      <!-- footer -->        
+      <v-footer color="yellow darken-2" class="mini-footer">
+        <span class="white--text d-block mx-auto">&copy; 2021 - Duino Elektronik | <a href="https://github.com/tomimandalap" target="_blank" class="white--text">github</a></span>
+      </v-footer>
+      <!-- end -->
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="./assets/js/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        state: false,
+        datacard: ['Temperature', 'Humidity', 'Soil Moisture'],
+        temp: [],
+        humd: [],
+        soil: [],
+        timerOn: true,
+        second: 0,
+      },
+      beforeMount() {
+        window.addEventListener('scroll', this.handleScroll)
+      },
+      beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll)
+      },
+      watch: {
+        second(val) {
+          if (val == 0) {
+            this.timerOn = true
+            this.load()
+          }
+        }
+      },
+      mounted() {
+        this.load()
+      },
+      methods: {
+        async load() {
+          this.timer(20)
+          await this.getDataTemperature()
+          await this.getDataHumidity()
+          await this.getDataSoil()
+        },
+        getDataTemperature() {
+          axios.get('https://api.thingspeak.com/channels/1468035/fields/1.json?results=1').then((res) => {
+            this.temp = res.data.feeds
+          }).catch((err) => {
+            if (err.response) this.temp = []
+          })
+        },
+        getDataHumidity() {
+          axios.get('https://api.thingspeak.com/channels/1468035/fields/2.json?results=1').then((res) => {
+            this.humd = res.data.feeds
+          }).catch((err) => {
+            if (err.response) this.humd = []
+          })
+        },
+        getDataSoil() {
+          axios.get('https://api.thingspeak.com/channels/1468035/fields/3.json?results=1').then((res) => {
+            this.soil = res.data.feeds
+          }).catch((err) => {
+            if (err.response) this.soil = []
+          })
+        },
+        convertDate(params) {
+          return moment(params).startOf('hour').fromNow()
+        },
+        timer(setPoint) {
+          var sec = setPoint % 60;
+          this.second = sec;
+          setPoint -= 1;
+          if (setPoint >= 0 && this.timerOn) {
+            setTimeout(() => {
+              this.timer(setPoint);
+            }, 1000);
+            return;
+          }
+          if (!this.timerOn) {
+            return;
+          }
+          this.timerOn = false;
+        },
+        handleScroll() {
+          if (window.scrollY > 500) {
+            this.state = true
+          } else {
+            this.state = false
+          }
+        },
+        handlebutton() {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        },
+      }
+    })
+  </script>
+</body>
+</html>

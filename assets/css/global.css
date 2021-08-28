@@ -1,0 +1,50 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.jumbotron {
+  min-height: 100vh;
+  background-image: url('../images/jumbotron.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.m-title {
+  margin: 30vh 0 0 0;
+}
+
+.description,
+.monitoring {
+  margin: 50px 0;
+}
+
+.f-digit {
+  font-size: 2rem;
+  margin: 10px 0 0 0;
+}
+
+.floating {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 25px;
+  right: 25px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 99;
+}
+
+@media (max-width: 600px) {
+  .m-title {
+    margin: 30vh 0 0 0;
+  }
+  .c-jumbotron {
+    text-align: center;
+  }
+}
