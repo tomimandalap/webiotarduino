@@ -1,4 +1,4 @@
-# smart-farm
+# Web IoT Arduino
 
 Website monitoring temperature, humidity and Soil Moisture based internet of things (IoT).
 
